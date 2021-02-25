@@ -4,6 +4,12 @@ const {
   isValidPassword,
   isRegisteredUser,
   passwordMatches,
+  user1,
+  user2,
+  user3,
+  password1,
+  password2,
+  password3,
 } = require("./main.js");
 
 // The code immediately above grabs the functions you'll
@@ -17,6 +23,27 @@ const {
 // below, and then console.logging the right message.
 
 // App Workflow:
+const email = getInput(1);
+const password = getInput(2);
+console.log(email);
+console.log(password);
+
+  if (passwordMatches(email,password)){
+    console.log("Logged in");
+  }
+  if(isRegisteredUser(email)){
+    if(!passwordMatches(email ,password)){
+      console.log("Password Is Incorrect!");
+    }
+  }else{
+    if(isValidEmail(email) && isValidPassword(password)){
+      console.log("Signed Up");
+    }else if (!isValidEmail(email)){
+      console.log("Invalid Email");
+    }else if(!isValidPassword(password)){
+      console.log("Invalid Password");
+    }
+  } 
 
 // We'll be running our code as users by typing in
 // `node [path to this file]` on the command line,
